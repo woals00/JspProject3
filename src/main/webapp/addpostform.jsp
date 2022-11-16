@@ -9,7 +9,7 @@
 <body>
 <%--enctype="multipart/form-data"--%>
 <h1>Add New Post</h1>
-<form action="addpost.jsp" method="post">
+<form action="add_ok.jsp" method="post">
     <table>
         <tr>
             <td>Userid:</td>

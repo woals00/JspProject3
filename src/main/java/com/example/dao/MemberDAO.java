@@ -11,34 +11,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MemberDAO {
-	
+
 	Connection conn = null;
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
 
-	private final String M_INSERT = "insert into member (userid, username, password, email, blogurl, photo, detail)" + " values (?,sha1(?),?,?,?,?,?)";
+	private final String M_INSERT =  "insert into member (userid, username, password, email, blogurl, photo, detail)" + " values (?,?,sha1(?),?,?,?,?)";
 	private final String M_UPDATE = "update member set userid=?, username=?, password=?, email=?, blogurl=?, photo=?, detail=?" + " where sid=?";
 	private final String M_DELETE = "delete from member  where sid=?";
 	private final String M_SELECT = "select * from member  where sid=?";
 	private final String M_LIST = "select * from member order by regdate desc";
 
 	public int insertMember(MemberVO vo) {
+		int result = 0;
+		conn = JDBCUtil.getConnection();
 		System.out.println("===> JDBC로 insertBoard() 기능 처리");
 		try {
-			conn = JDBCUtil.getConnection();
 			stmt = conn.prepareStatement(M_INSERT);
 			stmt.setString(1, vo.getUserid());
-			stmt.setString(2, vo.getPassword());
-			stmt.setString(3, vo.getUsername());
+			stmt.setString(2, vo.getUsername());
+			stmt.setString(3, vo.getPassword());
 			stmt.setString(4, vo.getEmail());
 			stmt.setString(5, vo.getBlogurl());
 			stmt.setString(6, vo.getPhoto());
 			stmt.setString(7, vo.getDetail());
-			return 1;
+			result = stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return 0;
+		return result;
 	}
 
 	// 글 삭제
@@ -66,13 +67,13 @@ public class MemberDAO {
 			System.out.println(vo.getUsername() + "-" + vo.getEmail() + "-" + vo.getPhoto() + "-" + vo.getDetail());
 			stmt.executeUpdate();
 			return 1;
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return 0;
-	}	
-	
+	}
+
 	public MemberVO getOne(int sid) {
 		MemberVO one = new MemberVO();
 		conn = JDBCUtil.getConnection();
@@ -98,7 +99,7 @@ public class MemberDAO {
 		}
 		return one;
 	}
-	
+
 	public List<MemberVO> getList(){
 		List<MemberVO> list = new ArrayList<MemberVO>();
 		conn = JDBCUtil.getConnection();
@@ -122,7 +123,7 @@ public class MemberDAO {
 			rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} 
+		}
 		return list;
 	}
 }
