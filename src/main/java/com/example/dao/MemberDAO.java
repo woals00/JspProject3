@@ -22,7 +22,7 @@ public class MemberDAO {
 	private final String M_SELECT = "select * from member  where sid=?";
 	private final String M_LIST = "select * from member order by regdate desc";
 
-	public int insertBoard(MemberVO vo) {
+	public int insertMember(MemberVO vo) {
 		System.out.println("===> JDBC로 insertBoard() 기능 처리");
 		int result = 0;
 		conn = JDBCUtil.getConnection();
@@ -42,7 +42,7 @@ public class MemberDAO {
 	}
 
 	// 글 삭제
-	public void deleteBoard(MemberVO vo) {
+	public void deleteMember(MemberVO vo) {
 		System.out.println("===> JDBC로 deleteBoard() 기능 처리");
 		try {
 			conn = JDBCUtil.getConnection();
@@ -53,7 +53,7 @@ public class MemberDAO {
 			e.printStackTrace();
 		}
 	}
-	public int updateBoard(MemberVO vo) {
+	public int updateMember(MemberVO vo) {
 		System.out.println("===> JDBC로 updateBoard() 기능 처리");
 		try {
 			conn = JDBCUtil.getConnection();
@@ -74,7 +74,7 @@ public class MemberDAO {
 	}	
 	
 	public MemberVO getOne(int sid) {
-		MemberVO one = null;
+		MemberVO one = new MemberVO();
 		conn = JDBCUtil.getConnection();
 		System.out.println("===> JDBC로 getBoard() 기능 처리");
 		try {
@@ -82,7 +82,6 @@ public class MemberDAO {
 			stmt.setInt(1, sid);
 			rs = stmt.executeQuery();
 			if(rs.next()) {
-				one = new MemberVO();
 				one.setSid(rs.getInt("sid"));
 				one.setUserid(rs.getString("userid"));
 				one.setUsername(rs.getString("username"));
@@ -99,16 +98,14 @@ public class MemberDAO {
 	}
 	
 	public List<MemberVO> getList(){
-		List<MemberVO> list = null;
+		List<MemberVO> list = new ArrayList<MemberVO>();
 		conn = JDBCUtil.getConnection();
 		System.out.println("===> JDBC로 getBoardList() 기능 처리");
 		try {
 			stmt = conn.prepareStatement(M_LIST);
 			rs = stmt.executeQuery();
-			list = new ArrayList<MemberVO>();
-			MemberVO one = new MemberVO();
 			while(rs.next()) {
-				one = new MemberVO();
+				MemberVO one = new MemberVO();
 				one.setSid(rs.getInt("sid"));
 				one.setUserid(rs.getString("userid"));
 				one.setUsername(rs.getString("username"));

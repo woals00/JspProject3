@@ -6,9 +6,9 @@
 	if (sid != ""){  
 		int id = Integer.parseInt(sid);
 		MemberVO u = new MemberVO();
-		u.setSeq(id);
+		u.setSid(id);
 		MemberDAO memberDAO = new MemberDAO();
-		memberDAO.deleteBoard(u);
+		memberDAO.deleteMember(u);
 	}
 	response.sendRedirect("posts.jsp");
 %>

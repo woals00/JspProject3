@@ -6,7 +6,7 @@
 
 <%
 	MemberDAO memberDAO = new MemberDAO();
-	List<MemberVO> list = memberDAO.getBoardList();
+	List<MemberVO> list = memberDAO.getList();
 	request.setAttribute("list",list);
 %>
 
@@ -49,22 +49,30 @@
 <table id="list" width="90%">
 <tr>
 	<th>Id</th>
-	<th>Title</th>
-	<th>Writer</th>
-	<th>Content</th>
+	<th>Userid</th>
+	<th>Username</th>
+	<th>Password</th>
+	<th>Email</th>
+	<th>Blogurl</th>
+	<th>Photo</th>
+	<th>Detail</th>
 	<th>Regdate</th>
 	<th>Edit</th>
 	<th>Delete</th>
 </tr>
 <c:forEach items="${list}" var="u">
 	<tr>
-		<td>${u.getSeq()}</td>
-		<td>${u.getTitle()}</td>
-		<td>${u.getWriter()}</td>
-		<td>${u.getContent()}</td>
-		<td>${u.getRegdate()}</td>
-		<td><a href="editform.jsp?id=${u.getSeq()}">Edit</a></td>
-		<td><a href="javascript:delete_ok('${u.getSeq()}')">Delete</a></td>
+		<td>${u.getSid()}</td>
+		<td>${u.getUserid()}</td>
+		<td>${u.getUsername()}</td>
+		<td>${u.getPassword()}</td>
+		<td>${u.getEmail()}</td>
+		<td>${u.getBlogurl}</td>
+		<td>${u.getPhoto}</td>
+		<td>${u.getDetail}</td>
+		<td>${u.getRegdate}</td>
+		<td><a href="editform.jsp?id=${u.getSid()}">Edit</a></td>
+		<td><a href="javascript:delete_ok('${u.getSid()}')">Delete</a></td>
 	</tr>
 </c:forEach>
 </table>
