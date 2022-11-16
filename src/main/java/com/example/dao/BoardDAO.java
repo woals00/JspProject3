@@ -1,13 +1,13 @@
 package com.example.dao;
 
+import com.example.bean.MemberVO;
+import com.example.util.JDBCUtil;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.example.bean.BoardVO;
-import com.example.util.JDBCUtil;
 
 public class BoardDAO {
 	
@@ -21,7 +21,7 @@ public class BoardDAO {
 	private final String BOARD_GET = "select * from BOARD  where seq=?";
 	private final String BOARD_LIST = "select * from BOARD order by seq desc";
 
-	public int insertBoard(BoardVO vo) {
+	public int insertBoard(MemberVO vo) {
 		System.out.println("===> JDBC로 insertBoard() 기능 처리");
 		try {
 			conn = JDBCUtil.getConnection();
@@ -38,7 +38,7 @@ public class BoardDAO {
 	}
 
 	// 글 삭제
-	public void deleteBoard(BoardVO vo) {
+	public void deleteBoard(MemberVO vo) {
 		System.out.println("===> JDBC로 deleteBoard() 기능 처리");
 		try {
 			conn = JDBCUtil.getConnection();
@@ -49,7 +49,7 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 	}
-	public int updateBoard(BoardVO vo) {
+	public int updateBoard(MemberVO vo) {
 		System.out.println("===> JDBC로 updateBoard() 기능 처리");
 		try {
 			conn = JDBCUtil.getConnection();
@@ -70,8 +70,8 @@ public class BoardDAO {
 		return 0;
 	}	
 	
-	public BoardVO getBoard(int seq) {
-		BoardVO one = new BoardVO();
+	public MemberVO getBoard(int seq) {
+		MemberVO one = new MemberVO();
 		System.out.println("===> JDBC로 getBoard() 기능 처리");
 		try {
 			conn = JDBCUtil.getConnection();
@@ -92,15 +92,15 @@ public class BoardDAO {
 		return one;
 	}
 	
-	public List<BoardVO> getBoardList(){
-		List<BoardVO> list = new ArrayList<BoardVO>();
+	public List<MemberVO> getBoardList(){
+		List<MemberVO> list = new ArrayList<MemberVO>();
 		System.out.println("===> JDBC로 getBoardList() 기능 처리");
 		try {
 			conn = JDBCUtil.getConnection();
 			stmt = conn.prepareStatement(BOARD_LIST);
 			rs = stmt.executeQuery();
 			while(rs.next()) {
-				BoardVO one = new BoardVO();
+				MemberVO one = new MemberVO();
 				one.setSeq(rs.getInt("seq"));
 				one.setTitle(rs.getString("title"));
 				one.setWriter(rs.getString("writer"));

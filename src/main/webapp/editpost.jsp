@@ -4,7 +4,7 @@
 
 <% request.setCharacterEncoding("utf-8"); %>
 
-<jsp:useBean id="u" class="com.example.bean.BoardVO" />
+<jsp:useBean id="u" class="com.example.bean.MemberVO" />
 <jsp:setProperty property="*" name="u"/>
 
 <%
