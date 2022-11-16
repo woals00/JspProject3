@@ -6,11 +6,49 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page pageEncoding="UTF-8" import="com.example.dao.MemberDAO, com.example.bean.MemberVO" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!DOCTYPE html>
 <html>
 <head>
-    <title>상세보기</title>
+    <meta charset="UTF-8">
+    <title>회원정보 - 회원관리 v1</title>
+    <link rel="stylesheet" href="">
 </head>
 <body>
-<h1>HELLO WORLD!</h1>
+<%
+    MemberDAO memberDAO = new MemberDAO();
+    String id = request.getParameter("id");
+    MemberVO u =memberDAO.getOne(Integer.parseInt(id));
+    request.setAttribute("vo", u);
+%>
+
+<h1>회원 정보 보기</h1>
+<table id="edit">
+    <tr>
+        <td>User Id</td><td>${vo.getUserid()}</td>
+    </tr>
+    <tr>
+        <td>Name</td><td>${vo.getUsername()}</td>
+    </tr>
+    <tr>
+        <td>Password</td><td>${vo.getPassword()}</td>
+    </tr>
+    <tr>
+        <td>Email</td><td>${vo.getEmail()}</td>
+    </tr>
+    <tr>
+        <td>Blogurl</td><td>${vo.getBlogurl()}</td>
+    </tr>
+    <tr>
+        <td>Photo</td><c:if test="${vo.getPhoto() ne ''}"><br/>
+    <img src="${pageContext.request.contextPath}/upload/${vo.getPhoto()}" class="photo" </c:if></td>
+    </tr>
+    <tr>
+        <td>Detail</td><td>${vo.getDetail()}</td>
+    </tr>
+</table>
+
 </body>
 </html>

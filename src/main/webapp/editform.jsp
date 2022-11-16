@@ -13,10 +13,11 @@
     MemberDAO memberDAO = new MemberDAO();
     String id = request.getParameter("id");
     MemberVO u = memberDAO.getOne(Integer.parseInt(id));
+    request.setAttribute("vo", u);
 %>
 
 <h1>Edit Form</h1>
-<form action="editpost.jsp" method="post">
+<form action="editpost.jsp" method="post" enctype="multipart/form-data">
     <input type="hidden" name="sid" value="<%=u.getSid() %>"/>
     <table>
         <tr>
@@ -40,8 +41,8 @@
             <td><input type="text" name="blogurl" value="<%= u.getBlogurl()%>"/></td>
         </tr>
         <tr>
-            <td>Photo:</td>
-            <td><input type="text" name="photo" value="<%= u.getPhoto()%>"/></td>
+            <td>Photo:</td><td><input type="file" name="photo" value="<%= u.getPhoto()%>"/>
+            <c:if test="${vo.getPhoto() ne ''}"><br /><img src="${pageContext.request.contextPath}/upload/${vo.getPhoto()}" class="photo" </c:if></td>
         </tr>
         <tr>
             <td>Detail:</td>

@@ -9,7 +9,7 @@
 <body>
 <%--enctype="multipart/form-data"--%>
 <h1>Add New Post</h1>
-<form action="add_ok.jsp" method="post">
+<form action="add_ok.jsp" method="post" enctype="multipart/form-data">
     <table>
         <tr>
             <td>Userid:</td>
@@ -33,7 +33,7 @@
         </tr>
         <tr>
             <td>Photo:</td>
-            <td><input type="text" name="photo"/></td>
+            <td><input type="file" name="photo"/></td>
         </tr>
         <tr>
             <td>Detail:</td>

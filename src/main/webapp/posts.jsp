@@ -2,6 +2,7 @@
 		 pageEncoding="UTF-8"%>
 <%@page import="com.example.dao.MemberDAO, com.example.bean.MemberVO,java.util.*"%>
 <%@ page import="com.example.dao.MemberDAO" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%
@@ -61,8 +62,9 @@
 		<th></th>
 		<th></th>
 	</tr>
-	<c:forEach items="${list}" var="u">
+	<c:forEach items="${list}" var="u" varStatus="status">
 		<tr>
+			<td>${fn:length(list)-status.index}</td>
 			<td>${u.getSid()}</td>
 			<td>${u.getUserid()}</td>
 			<td>${u.getUsername()}</td>
