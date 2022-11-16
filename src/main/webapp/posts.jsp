@@ -57,8 +57,9 @@
 		<th>Photo</th>
 		<th>Detail</th>
 		<th>Regdate</th>
-		<th>Edit</th>
-		<th>Delete</th>
+		<th></th>
+		<th></th>
+		<th></th>
 	</tr>
 	<c:forEach items="${list}" var="u">
 		<tr>
@@ -71,6 +72,7 @@
 			<td>${u.getPhoto()}</td>
 			<td>${u.getDetail()}</td>
 			<td>${u.getRegdate()}</td>
+			<td><a href="view.jsp?id=${u.getSid()}">View</a></td>
 			<td><a href="editform.jsp?id=${u.getSid()}">Edit</a></td>
 			<td><a href="javascript:delete_ok('${u.getSid()}')">Delete</a></td>
 		</tr>
