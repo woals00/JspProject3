@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class MemberVO {
 	private int sid;
-	private String uesrid;
+	private String userid;
 	private String username;
 	private String password;
 	private String email;
@@ -21,12 +21,12 @@ public class MemberVO {
 		this.sid = sid;
 	}
 
-	public String getUesrid() {
-		return uesrid;
+	public String getUserid() {
+		return userid;
 	}
 
-	public void setUesrid(String uesrid) {
-		this.uesrid = uesrid;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 
 	public String getUsername() {

@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="com.example.dao.BoardDAO, com.example.bean.MemberVO,java.util.*"%>
+<%@page import="com.example.dao.MemberDAO, com.example.bean.MemberVO,java.util.*"%>
+<%@ page import="com.example.dao.MemberDAO" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%
-	BoardDAO boardDAO = new BoardDAO();
-	List<MemberVO> list = boardDAO.getBoardList();
+	MemberDAO memberDAO = new MemberDAO();
+	List<MemberVO> list = memberDAO.getBoardList();
 	request.setAttribute("list",list);
 %>
 
