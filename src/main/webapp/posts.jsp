@@ -14,7 +14,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>free board</title>
+<title>Member 관리</title>
 <style>
 #list {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -44,7 +44,7 @@
 </script>
 </head>
 <body>
-<h1>자유게시판</h1>
+<h1>Member 관리</h1>
 
 <table id="list" width="90%">
 <tr>
@@ -53,7 +53,7 @@
 	<th>Username</th>
 	<th>Password</th>
 	<th>Email</th>
-	<th>Blogurl</th>
+	<th>BlogUrl</th>
 	<th>Photo</th>
 	<th>Detail</th>
 	<th>Regdate</th>
@@ -67,10 +67,10 @@
 		<td>${u.getUsername()}</td>
 		<td>${u.getPassword()}</td>
 		<td>${u.getEmail()}</td>
-		<td>${u.getBlogurl}</td>
-		<td>${u.getPhoto}</td>
-		<td>${u.getDetail}</td>
-		<td>${u.getRegdate}</td>
+		<td>${u.getBlogurl()}</td>
+		<td>${u.getPhoto()}</td>
+		<td>${u.getDetail()}</td>
+		<td>${u.getRegdate()}</td>
 		<td><a href="editform.jsp?id=${u.getSid()}">Edit</a></td>
 		<td><a href="javascript:delete_ok('${u.getSid()}')">Delete</a></td>
 	</tr>
