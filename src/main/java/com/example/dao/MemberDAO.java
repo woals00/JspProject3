@@ -75,7 +75,7 @@ public class MemberDAO {
 	}
 
 	public MemberVO getOne(int sid) {
-		MemberVO one = new MemberVO();
+		MemberVO one = null;
 		conn = JDBCUtil.getConnection();
 		System.out.println("===> JDBC로 getBoard() 기능 처리");
 		try {
@@ -83,6 +83,7 @@ public class MemberDAO {
 			stmt.setInt(1, sid);
 			rs = stmt.executeQuery();
 			if(rs.next()) {
+				one = new MemberVO();
 				one.setSid(rs.getInt("sid"));
 				one.setUserid(rs.getString("userid"));
 				one.setUsername(rs.getString("username"));
@@ -101,14 +102,16 @@ public class MemberDAO {
 	}
 
 	public List<MemberVO> getList(){
-		List<MemberVO> list = new ArrayList<MemberVO>();
+		List<MemberVO> list = null;
 		conn = JDBCUtil.getConnection();
 		System.out.println("===> JDBC로 getBoardList() 기능 처리");
 		try {
 			stmt = conn.prepareStatement(M_LIST);
 			rs = stmt.executeQuery();
+			list = new ArrayList<MemberVO>();
+			MemberVO one = new MemberVO();
 			while(rs.next()) {
-				MemberVO one = new MemberVO();
+				one = new MemberVO();
 				one.setSid(rs.getInt("sid"));
 				one.setUserid(rs.getString("userid"));
 				one.setUsername(rs.getString("username"));
