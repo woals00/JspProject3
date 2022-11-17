@@ -22,14 +22,15 @@
     multpartRequest = new MultipartRequest(request, realPath,
             sizeLimit, "utf-8",new DefaultFileRenamePolicy());
     filename = multpartRequest.getFilesystemName("photo");
+
 %>
 
-
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<%--<html>--%>
+<%--<head>--%>
+<%--    <title>Title</title>--%>
+<%--</head>--%>
+<%--<body>--%>
+<%--파일명 : <%=filename%> <br />--%>
+<%--<img src="${pageContext.request.contextPath }/upload/<%filename%>">--%>
+<%--</body>--%>
+<%--</html>--%>

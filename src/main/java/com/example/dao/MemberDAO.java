@@ -17,7 +17,7 @@ public class MemberDAO {
 	ResultSet rs = null;
 
 	private final String M_INSERT = "insert into member (userid, username, password, email, blogurl, photo, detail)" + " values (?,?,sha1(?),?,?,?,?)";
-	private final String M_UPDATE = "update member set userid=?, username=?, password=?, email=?, blogurl=?, photo=?, detail=?" + " where sid=?";
+	private final String M_UPDATE = "update member set userid=?, username=?, password=?, email=?, blogurl=?,photo=?, detail=? where sid=?";
 	private final String M_DELETE = "delete from member  where sid=?";
 	private final String M_SELECT = "select * from member  where sid=?";
 	private final String M_LIST = "select * from member order by regdate desc";
@@ -56,19 +56,21 @@ public class MemberDAO {
 	}
 
 	public int updateMember(MemberVO vo) {
+		conn = JDBCUtil.getConnection();
 		System.out.println("===> JDBC로 updateBoard() 기능 처리");
+		System.out.println("12345");
 		try {
-			conn = JDBCUtil.getConnection();
 			stmt = conn.prepareStatement(M_UPDATE);
-			stmt.setString(1, vo.getUsername());
-			stmt.setString(2, vo.getEmail());
-			stmt.setString(3, vo.getPhoto());
-			stmt.setString(4, vo.getDetail());
-
-			System.out.println(vo.getUsername() + "-" + vo.getEmail() + "-" + vo.getPhoto() + "-" + vo.getDetail());
+			stmt.setString(1, vo.getUserid());
+			stmt.setString(2, vo.getUsername());
+			stmt.setString(3, vo.getPassword());
+			stmt.setString(4, vo.getEmail());
+			stmt.setString(5, vo.getBlogurl());
+			stmt.setString(6, vo.getPhoto());
+			stmt.setString(7, vo.getDetail());
+			stmt.setInt(8,vo.getSid());
 			stmt.executeUpdate();
 			return 1;
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -142,8 +144,8 @@ public class MemberDAO {
 				filename = rs.getString("photo");
 			}
 			rs.close();
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		System.out.println("===> JDBC로 getPhotoFilename() 기능 처리");
 		return filename;

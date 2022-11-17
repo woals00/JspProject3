@@ -42,13 +42,16 @@
         <td>Blogurl</td><td>${vo.getBlogurl()}</td>
     </tr>
     <tr>
-        <td>Photo</td><c:if test="${vo.getPhoto() ne ''}"><br/>
+        <td>Photo</td><td><c:if test="${vo.getPhoto() ne ''}"><br/>
     <img src="${pageContext.request.contextPath}/upload/${vo.getPhoto()}" class="photo" </c:if></td>
     </tr>
     <tr>
         <td>Detail</td><td>${vo.getDetail()}</td>
     </tr>
+
 </table>
+<button type="button" onclick="history.back()">뒤로 가기</button>
+<button type="button" onclick="location.href='editform.jsp?id=${vo.getSid()}'">수정하기</button>
 
 </body>
 </html>

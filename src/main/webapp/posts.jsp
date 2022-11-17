@@ -26,6 +26,7 @@
 			border: 1px solid #ddd;
 			padding: 8px;
 			text-align:center;
+			height: 200%;
 		}
 		#list tr:nth-child(even){background-color: #f2f2f2;}
 		#list tr:hover {background-color: #ddd;}
@@ -47,7 +48,7 @@
 <body>
 <h1>Member 관리</h1>
 
-<table id="list" width="90%">
+<table id="list" width="90%" >
 	<tr>
 		<th>Id</th>
 		<th>Userid</th>
@@ -58,20 +59,19 @@
 		<th>Photo</th>
 		<th>Detail</th>
 		<th>Regdate</th>
-		<th></th>
-		<th></th>
-		<th></th>
+		<th>View</th>
+		<th>Edit</th>
+		<th>Delete</th>
 	</tr>
-	<c:forEach items="${list}" var="u" varStatus="status">
+	<c:forEach items="${list}" var="u">
 		<tr>
-			<td>${fn:length(list)-status.index}</td>
 			<td>${u.getSid()}</td>
 			<td>${u.getUserid()}</td>
 			<td>${u.getUsername()}</td>
 			<td>${u.getPassword()}</td>
 			<td>${u.getEmail()}</td>
 			<td>${u.getBlogurl()}</td>
-			<td>${u.getPhoto()}</td>
+			<td><c:if test="${u.getPhoto() ne ''}"><br /><img src="${pageContext.request.contextPath}/upload/${vo.getPhoto()}" class="photo" </c:if></td>
 			<td>${u.getDetail()}</td>
 			<td>${u.getRegdate()}</td>
 			<td><a href="view.jsp?id=${u.getSid()}">View</a></td>

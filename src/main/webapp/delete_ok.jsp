@@ -2,6 +2,9 @@
 		 pageEncoding="UTF-8"%>
 <%@page import="com.example.dao.MemberDAO, com.example.bean.MemberVO"%>
 <%@ page import="com.example.util.FileUpload" %>
+<%@ page import="com.example.bean.MemberVO" %>
+
+
 <%
 	String sid = request.getParameter("id");
 	if (sid != ""){

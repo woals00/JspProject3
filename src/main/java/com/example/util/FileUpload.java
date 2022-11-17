@@ -15,6 +15,9 @@ public class FileUpload {
         int sizeLimit = 15 * 1024 * 1024;
         String realPath = request.getServletContext().getRealPath("upload");
 
+        File dir = new File(realPath);
+        if(!dir.exists()) dir.mkdirs();
+
         MemberVO one = null;
         MultipartRequest multipartRequest = null;
         try{
@@ -24,11 +27,12 @@ public class FileUpload {
             String sid = multipartRequest.getParameter("sid");
             if(sid != null &&!sid.equals("")) one.setSid(Integer.parseInt(sid));
             one.setUserid(multipartRequest.getParameter("userid"));
-            one.setUserid(multipartRequest.getParameter("username"));
-            one.setUserid(multipartRequest.getParameter("password"));
-            one.setUserid(multipartRequest.getParameter("email"));
-            one.setUserid(multipartRequest.getParameter("blogurl"));
-            one.setUserid(multipartRequest.getParameter("detail"));
+            one.setUsername(multipartRequest.getParameter("username"));
+            one.setPassword(multipartRequest.getParameter("password"));
+            one.setEmail(multipartRequest.getParameter("email"));
+            one.setBlogurl(multipartRequest.getParameter("blogurl"));
+            one.setPhoto(multipartRequest.getParameter("photo"));
+            one.setDetail(multipartRequest.getParameter("detail"));
 
             if(sid!=null && !sid.equals("")){
                 MemberDAO dao = new MemberDAO();
