@@ -5,11 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<%
-    MemberDAO memberDAO = new MemberDAO();
-    List<MemberVO> list = memberDAO.getList();
-    request.setAttribute("list", list);
-%>
+
 
 <!DOCTYPE html>
 <html>
@@ -39,17 +35,21 @@
     </script>
 </head>
 <body>
+<%
+    MemberDAO memberDAO = new MemberDAO();
+    List<MemberVO> list = memberDAO.getList();
+    request.setAttribute("list", list);
+%>
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark px-3">
-        <a class="navbar-brand" href="#">JM's Site</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="posts.jsp">Sanna's Site</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.jsp">Home </a>
+                    <a class="nav-link" href="posts.jsp.jsp">Home </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="addpostform.jsp">Add</a>
@@ -71,7 +71,7 @@
                 <th scope="col">Image</th>
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
-                <th scope="col">Password</th>
+                <%--                <th scope="col">Password</th>--%>
                 <th scope="col">Email</th>
                 <th scope="col">Blog URL</th>
                 <th scope="col">Detail</th>
@@ -85,12 +85,12 @@
             <c:forEach items="${list}" var="u">
                 <tr>
                     <td>${u.getSid()}</td>
-                    <td><c:if test="${u.getPhoto() ne ''}"><br/><img width= "200px" height="200px"
+                    <td><c:if test="${u.getPhoto() ne ''}"><br/><img width="100px" height="100px"
                                                                      src="${pageContext.request.contextPath}/upload/${vo.getPhoto()}"
                                                                      class="photo" </c:if></td>
                     <td>${u.getUserid()}</td>
                     <td>${u.getUsername()}</td>
-                    <td>${u.getPassword()}</td>
+                        <%--                    <td>${u.getPassword()}</td>--%>
                     <td>${u.getEmail()}</td>
                     <td>${u.getBlogurl()}</td>
                     <td>${u.getDetail()}</td>
@@ -117,12 +117,15 @@
             </c:forEach>
             </tbody>
         </table>
-        <%--        <br/><a href="addpostform.jsp">Add New Post</a>--%>
-        <footer class="footer">
-            <div class="container">
-                <span class="text-muted">copyright © 2022 WALAB. 실전프로젝트1 연습 사이트</span>
-            </div>
-        </footer>
+    </div>
+</main>
+<%--        <br/><a href="addpostform.jsp">Add New Post</a>--%>
+
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">copyright © 2022 WALAB. 실전프로젝트1 연습 사이트</span>
+    </div>
+</footer>
 </body>
 </html>
 

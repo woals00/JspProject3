@@ -6,7 +6,7 @@ public class MemberVO {
 	private int sid;
 	private String userid;
 	private String username;
-	private String password;
+//	private String password;
 	private String email;
 	private String blogurl;
 	private String photo;
@@ -37,13 +37,13 @@ public class MemberVO {
 		this.username = username;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
+//	public String getPassword() {
+//		return password;
+//	}
+//
+//	public void setPassword(String password) {
+//		this.password = password;
+//	}
 
 	public String getEmail() {
 		return email;

@@ -16,8 +16,8 @@ public class MemberDAO {
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
 
-	private final String M_INSERT = "insert into member (userid, username, password, email, blogurl, photo, detail)" + " values (?,?,sha1(?),?,?,?,?)";
-	private final String M_UPDATE = "update member set userid=?, username=?, password=?, email=?, blogurl=?,photo=?, detail=? where sid=?";
+	private final String M_INSERT = "insert into member (userid, username, email, blogurl, photo, detail)" + " values (?,?,?,?,?,?)";
+	private final String M_UPDATE = "update member set userid=?, username=?, email=?, blogurl=?,photo=?, detail=? where sid=?";
 	private final String M_DELETE = "delete from member  where sid=?";
 	private final String M_SELECT = "select * from member  where sid=?";
 	private final String M_LIST = "select * from member order by regdate desc";
@@ -30,11 +30,11 @@ public class MemberDAO {
 			stmt = conn.prepareStatement(M_INSERT);
 			stmt.setString(1, vo.getUserid());
 			stmt.setString(2, vo.getUsername());
-			stmt.setString(3, vo.getPassword());
-			stmt.setString(4, vo.getEmail());
-			stmt.setString(5, vo.getBlogurl());
-			stmt.setString(6, vo.getPhoto());
-			stmt.setString(7, vo.getDetail());
+//			stmt.setString(3, vo.getPassword());
+			stmt.setString(3, vo.getEmail());
+			stmt.setString(4, vo.getBlogurl());
+			stmt.setString(5, vo.getPhoto());
+			stmt.setString(6, vo.getDetail());
 			result = stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -63,12 +63,12 @@ public class MemberDAO {
 			stmt = conn.prepareStatement(M_UPDATE);
 			stmt.setString(1, vo.getUserid());
 			stmt.setString(2, vo.getUsername());
-			stmt.setString(3, vo.getPassword());
-			stmt.setString(4, vo.getEmail());
-			stmt.setString(5, vo.getBlogurl());
-			stmt.setString(6, vo.getPhoto());
-			stmt.setString(7, vo.getDetail());
-			stmt.setInt(8,vo.getSid());
+//			stmt.setString(3, vo.getPassword());
+			stmt.setString(3, vo.getEmail());
+			stmt.setString(4, vo.getBlogurl());
+			stmt.setString(5, vo.getPhoto());
+			stmt.setString(6, vo.getDetail());
+			stmt.setInt(7, vo.getSid());
 			stmt.executeUpdate();
 			return 1;
 		} catch (SQLException e) {
@@ -90,7 +90,7 @@ public class MemberDAO {
 				one.setSid(rs.getInt("sid"));
 				one.setUserid(rs.getString("userid"));
 				one.setUsername(rs.getString("username"));
-				one.setPassword(rs.getString("password"));
+//				one.setPassword(rs.getString("password"));
 				one.setEmail(rs.getString("email"));
 				one.setBlogurl(rs.getString("blogurl"));
 				one.setPhoto(rs.getString("photo"));
@@ -118,7 +118,7 @@ public class MemberDAO {
 				one.setSid(rs.getInt("sid"));
 				one.setUserid(rs.getString("userid"));
 				one.setUsername(rs.getString("username"));
-				one.setPassword(rs.getString("password"));
+//				one.setPassword(rs.getString("password"));
 				one.setEmail(rs.getString("email"));
 				one.setBlogurl(rs.getString("blogurl"));
 				one.setPhoto(rs.getString("photo"));

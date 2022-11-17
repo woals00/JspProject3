@@ -28,7 +28,7 @@ public class FileUpload {
             if(sid != null &&!sid.equals("")) one.setSid(Integer.parseInt(sid));
             one.setUserid(multipartRequest.getParameter("userid"));
             one.setUsername(multipartRequest.getParameter("username"));
-            one.setPassword(multipartRequest.getParameter("password"));
+//            one.setPassword(multipartRequest.getParameter("password"));
             one.setEmail(multipartRequest.getParameter("email"));
             one.setBlogurl(multipartRequest.getParameter("blogurl"));
             one.setPhoto(multipartRequest.getParameter("photo"));
