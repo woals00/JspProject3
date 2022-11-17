@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="./assets/css/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
     <style>
         .form-label{
             font-weight: 600 !important;
@@ -13,43 +13,6 @@
     </style>
     <title>Insert title here</title>
 </head>
-<%--<body>--%>
-<%--&lt;%&ndash;&lt;%&ndash;enctype="multipart/form-data"&ndash;%&gt;&ndash;%&gt;--%>
-<%--&lt;%&ndash;<h1>Add New Post</h1>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<form action="add_ok.jsp" method="post" enctype="multipart/form-data">&ndash;%&gt;--%>
-<%--&lt;%&ndash;    <table>&ndash;%&gt;--%>
-<%--&lt;%&ndash;        <tr>&ndash;%&gt;--%>
-<%--&lt;%&ndash;            <td>Userid:</td>&ndash;%&gt;--%>
-<%--&lt;%&ndash;            <td><input type="text" name="userid"/></td>&ndash;%&gt;--%>
-<%--&lt;%&ndash;        </tr>&ndash;%&gt;--%>
-<%--&lt;%&ndash;        <tr>&ndash;%&gt;--%>
-<%--&lt;%&ndash;            <td>Username:</td>&ndash;%&gt;--%>
-<%--&lt;%&ndash;            <td><input type="text" name="username"/></td>&ndash;%&gt;--%>
-<%--&lt;%&ndash;        </tr>&ndash;%&gt;--%>
-<%--&lt;%&ndash;        <tr>&ndash;%&gt;--%>
-<%--&lt;%&ndash;            <td>Email:</td>&ndash;%&gt;--%>
-<%--&lt;%&ndash;            <td><input type="text" name="email"/></td>&ndash;%&gt;--%>
-<%--&lt;%&ndash;        </tr>&ndash;%&gt;--%>
-<%--&lt;%&ndash;        <tr>&ndash;%&gt;--%>
-<%--&lt;%&ndash;            <td>Blogurl:</td>&ndash;%&gt;--%>
-<%--&lt;%&ndash;            <td><input type="text" name="blogurl"/></td>&ndash;%&gt;--%>
-<%--&lt;%&ndash;        </tr>&ndash;%&gt;--%>
-<%--&lt;%&ndash;        <tr>&ndash;%&gt;--%>
-<%--&lt;%&ndash;            <td>Photo:</td>&ndash;%&gt;--%>
-<%--&lt;%&ndash;            <td><input type="file" name="photo"/></td>&ndash;%&gt;--%>
-<%--&lt;%&ndash;        </tr>&ndash;%&gt;--%>
-<%--&lt;%&ndash;        <tr>&ndash;%&gt;--%>
-<%--&lt;%&ndash;            <td>Detail:</td>&ndash;%&gt;--%>
-<%--&lt;%&ndash;            <td><textarea cols="50" rows="5" name="detail"></textarea></td>&ndash;%&gt;--%>
-<%--&lt;%&ndash;        </tr>&ndash;%&gt;--%>
-<%--&lt;%&ndash;        <tr>&ndash;%&gt;--%>
-<%--&lt;%&ndash;            <td><a href="posts.jsp">View All Records</a></td>&ndash;%&gt;--%>
-<%--&lt;%&ndash;            <td align="right"><input type="submit" value="Add Post"/></td>&ndash;%&gt;--%>
-<%--&lt;%&ndash;        </tr>&ndash;%&gt;--%>
-<%--&lt;%&ndash;    </table>&ndash;%&gt;--%>
-<%--&lt;%&ndash;</form>&ndash;%&gt;--%>
-
-<%--</body>--%>
 <body>
 
 <!-- Fixed navbar -->
@@ -62,7 +25,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="posts.jsp.jsp">Home </a>
+                    <a class="nav-link" href="posts.jsp">Home </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="addpostform.jsp">Add</a>
