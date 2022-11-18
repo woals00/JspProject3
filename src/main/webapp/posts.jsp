@@ -6,7 +6,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +42,8 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark px-3">
         <a class="navbar-brand" href="posts.jsp">JM's Site</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -86,8 +86,8 @@
                 <tr>
                     <td>${u.getSid()}</td>
                     <td><c:if test="${u.getPhoto() ne ''}"><br/><img width="100px" height="100px"
-                                                                     src="${pageContext.request.contextPath}/upload/${vo.getPhoto()}"
-                                                                     class="photo" </c:if></td>
+                            src="${pageContext.request.contextPath}/upload/${u.getPhoto()}"
+                            class="photo" </c:if></td>
                     <td>${u.getUserid()}</td>
                     <td>${u.getUsername()}</td>
                         <%--                    <td>${u.getPassword()}</td>--%>

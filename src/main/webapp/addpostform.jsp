@@ -11,7 +11,7 @@
             font-weight: 600 !important;
         }
     </style>
-    <title>Insert title here</title>
+    <title>ADD Form</title>
 </head>
 <body>
 
